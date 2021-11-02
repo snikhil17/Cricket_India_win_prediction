@@ -10,10 +10,11 @@
 ## Using ``Waitress`` for deployment
 ![image](https://user-images.githubusercontent.com/80937106/139857735-28264a63-9e6e-484d-921a-75da46dd378a.png)
 
-# How to use.
+
 ## Checked the results by running the predict.py file in anaconda prompt 
 ![image](https://user-images.githubusercontent.com/80937106/139857778-567065e4-9a74-4b74-b07d-3450f1ec5829.png)
 
+# How to use.
 ## Clone the Repository
 ![image](https://user-images.githubusercontent.com/80937106/139857803-1d4f2de3-033b-444e-a4da-9c58d2c277aa.png)
 
