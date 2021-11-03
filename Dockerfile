@@ -1,12 +1,16 @@
 FROM python:3.8.12-slim
 
-RUN pip install pipenv
+LABEL maintainer="Nikhil Shrestha"
+
+ENV PYTHONUNBUFFERED=TRUE
+
+RUN pip --no-cache-dir install pipenv
 
 WORKDIR /app
 
 COPY ["Pipfile", "Pipfile.lock", "./"]
 
-RUN pipenv install --system --deploy
+RUN set -ex && pipenv install --deploy --system
 
 COPY ["predict.py", "model_rf.bin", "./"]
 
