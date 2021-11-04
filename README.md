@@ -60,18 +60,54 @@ You can take this free course. Links to course mentioned below:
 
 
 # Docker:
-You can just use the dockerfile in this repository.
+If you choose to build a docker file locally instead, here are the steps to do so:
+
+- Create a Dockerfile as such:
+
+``FROM python:3.8.12-slim``
+
+``LABEL maintainer="Nikhil Shrestha"``
+
+``ENV PYTHONUNBUFFERED=TRUE``
+
+``RUN pip --no-cache-dir install pipenv``
+
+``WORKDIR /app``
+
+``COPY ["Pipfile", "Pipfile.lock", "./"]``
+
+``RUN set -ex && pipenv install --deploy --system``
+
+``COPY ["predict.py", "model_n_estimators=400.bin", "./"]``
+
+``EXPOSE 9696``
+
+``ENTRYPOINT ["gunicorn", "--bind=0.0.0.0:9696", "predict:app"]``
+
+- This allows us to install python, run pipenv and its dependencies, run our predict script and our model itself and deploys our model using Flask/gunicorn.
+
+Similarly, you can just use the dockerfile in this repository.
+
 - Build the Docker Container with :
 
 ``docker build -t midtermproject_nick .``
+
 - Run the Docker container with:
 
-``Docker run -it -p 9696:9696 midtermproject_nick`` 
+``Docker run -it -p 9696:9696 midtermproject_nick``
+
 - Now we can use our model through
 
-``python train_rf.py``
-
 ``python predict-test.py``
+
+- tag the docker container with:
+
+``docker tag abalone-age-prediction snikhil17/midtermproject_nick``
+
+- Push it Docker registry with :
+
+``docker push snikhil17/midtermproject_nick``
+
 
 # Virtual environment and package dependencies
 
