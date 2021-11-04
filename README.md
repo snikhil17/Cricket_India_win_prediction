@@ -62,11 +62,15 @@ You can take this free course. Links to course mentioned below:
 # Docker:
 You can just use the dockerfile in this repository.
 - Build the Docker Container with :
+
 ``docker build -t midtermproject_nick .``
 - Run the Docker container with:
+
 ``Docker run -it -p 9696:9696 midtermproject_nick`` 
 - Now we can use our model through
+
 ``python train_rf.py``
+
 ``python predict-test.py``
 
 
