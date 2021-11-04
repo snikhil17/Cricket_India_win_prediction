@@ -4,7 +4,7 @@ You can take this free course. Links to course mentioned below:
 - https://datatalks.club/courses/2021-winter-ml-zoomcamp.html
 - https://github.com/alexeygrigorev/mlbookcamp-code/tree/master/course-zoomcamp
 
-## 1. About the Project 
+## About the Project 
 ### **Problem Statement:**
 
 - The major objective of this project is to extract actionable insights from the historical match data and make strategic changes to make India win. 
@@ -12,7 +12,7 @@ You can take this free course. Links to course mentioned below:
 - Once a model is developed then you have to extract actionable insights and recommendation. Also, below are the details of the next 10 matches, India is going to play. You have to predict the result of the matches.
 - This is binary classification problem, where depending on the features given we will predict the probability of India winning.
 
-## 2. Sports_Data_Analysis.ipynb.ipynb File Explained:
+## Sports_Data_Analysis.ipynb.ipynb File Explained:
 ### Notebook is extensively explained for the steps described below:
 - Loading Libraries
 - Loading data
@@ -72,6 +72,37 @@ You can just use the dockerfile in this repository.
 ``python train_rf.py``
 
 ``python predict-test.py``
+
+# Virtual environment and package dependencies
+
+- To ensure all scripts work fine and libraries used during development are the ones which you use during your deployment/testing, Python venv has been used to manage virtual environment and package dependencies. Follow the below steps to setup this up in your environment.
+
+- The steps to install Python venv will depend on the Operating system you have. Below steps have been provided in reference to installation on Ubuntu, however you can refer to Official documentation at https://docs.python.org/3/tutorial/venv.html to know appropriate steps for your OS.
+
+- Install pip3 and venv if not installed (below sample commands to be used on Ubuntu hav been provided
+
+``sudo apt install -y python3-pip python3-venv``
+
+- Create a virtual environment. Below command creates a virtual environment named mlzoomcamp
+
+``python3 -m venv mlzoomcamp``
+
+- Activate the virtual environment.
+
+``. ./mlzoomcamp/bin/activate``
+
+- Clone this repo
+
+``git clone https://github.com/snikhil17/Mid-Term-Project-Zoomcamp.git``
+
+- Change to the directory that has the required files
+
+``cd mlzoomcamp-midterm-project/``
+
+- Install packages required for this project
+
+``pip install -r requirements.txt``
+
 
 
 
