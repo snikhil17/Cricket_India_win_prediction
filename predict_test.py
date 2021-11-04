@@ -30,7 +30,7 @@ match = {"all_rounder_in_team": 1.0,
 response = requests.post(url, json=customer).json()
 print(response)
 
-if response['churn'] == True:
+if response['match'] == True:
     print('India will win the match ')
 else:
     print('India will not win the match')
