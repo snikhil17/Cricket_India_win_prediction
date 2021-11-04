@@ -1,8 +1,7 @@
 import requests
 
 
-url = 'http://localhost:9696/predict'
-
+url = 'http://192.168.222.205:9696/predict'
 
 match = {"all_rounder_in_team": 1.0,
          "avg_team_age": 26.0,
@@ -24,10 +23,5 @@ match = {"all_rounder_in_team": 1.0,
          "season": "Winter"}
 
 
-response = requests.post(url, json=customer).json()
+response = requests.post(url, json=match).json()
 print(response)
-
-if response['match'] == True:
-    print('India will win the match ')
-else:
-    print('India will not win the match')
