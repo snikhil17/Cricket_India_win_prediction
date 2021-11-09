@@ -98,7 +98,7 @@ Similarly, you can just use the dockerfile in this repository.
 
 - Now we can use our model through
 
-``python predict-test.py``
+``python predict_test.py``
 
 
 
