@@ -100,13 +100,6 @@ Similarly, you can just use the dockerfile in this repository.
 
 ``python predict-test.py``
 
-- tag the docker container with:
-
-``docker tag abalone-age-prediction snikhil17/midtermproject_nick``
-
-- Push it Docker registry with :
-
-``docker push snikhil17/midtermproject_nick``
 
 
 # Virtual environment and package dependencies
