@@ -56,7 +56,7 @@ You can take this free course. Links to course mentioned below:
 ## Loaded the Model using train_rf.py file
 ![image](https://user-images.githubusercontent.com/80937106/139857842-87283b62-2abb-44e3-a74c-e6777ba712fb.png)
 
-## Use ``predict.py`` to run the app and then can check the prediction on the given dictionary of variables and values using ``python predict-test.py``
+## Use ``predict.py`` to run the app and then can check the prediction on the given dictionary of variables and values using ``python predict_test.py``
 
 
 # Docker:
