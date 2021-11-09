@@ -78,7 +78,7 @@ If you choose to build a docker file locally instead, here are the steps to do s
 
 ``RUN set -ex && pipenv install --deploy --system``
 
-``COPY ["predict.py", "model_n_estimators=400.bin", "./"]``
+``COPY ["predict.py", "model_rf.bin", "./"]``
 
 ``EXPOSE 9696``
 
