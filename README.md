@@ -1,9 +1,3 @@
-# Mid-Term-Project-Zoomcamp
-This repo contains the work completed as part of the Mid Term project for the course ML Zoomcamp, conducted by Alexey Grigorev. 
-You can take this free course. Links to course mentioned below:
-- https://datatalks.club/courses/2021-winter-ml-zoomcamp.html
-- https://github.com/alexeygrigorev/mlbookcamp-code/tree/master/course-zoomcamp
-
 ## About the Project 
 ### **Problem Statement:**
 
