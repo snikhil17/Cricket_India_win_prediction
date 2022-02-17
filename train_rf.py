@@ -23,30 +23,30 @@ import pickle
 import sklearn
 from sklearn.metrics import confusion_matrix, classification_report
 from sklearn.feature_extraction import DictVectorizer
-from xgboost import XGBClassifier
+
 from sklearn import metrics
 from sklearn import preprocessing
 from sklearn.preprocessing import OneHotEncoder, OrdinalEncoder
 from sklearn.model_selection import StratifiedKFold, train_test_split
 import pandas as pd
 import numpy as np
-import seaborn as sns
-import matplotlib.pyplot as plt
-from IPython.display import display
+# import seaborn as sns
+# import matplotlib.pyplot as plt
+# from IPython.display import display
 from sklearn.ensemble import RandomForestClassifier
 print("Loading Libraries...")
 # import optuna
 
 
-plt.rcParams['figure.figsize'] = (16, 8)
-plt.style.use("fivethirtyeight")
+# plt.rcParams['figure.figsize'] = (16, 8)
+# plt.style.use("fivethirtyeight")
 
 
 warnings.filterwarnings('ignore')
 
 
 # parameters
-params = {'n_estimators': 3925, 'max_depth': int(31.908468045247087)}
+params = {'n_estimators': 500, 'max_depth': 20}
 
 """Save the model"""
 output_file = f'model_rf.bin'
@@ -54,7 +54,7 @@ output_file = f'model_rf.bin'
 print("Loading Data")
 # Loading Data
 df_maindata = pd.read_excel(
-    r'C:\Users\nshre\Desktop\mid -term project\Sports Data.xlsx', sheet_name='Sports data for DSBA')
+    r'D:\Unused Desktop icons\Unused Desktop icons\mid -term project\Sports Data.xlsx', sheet_name='Sports data for DSBA')
 df_maindata.info()
 
 """Making columns lower case and replacing any spaces with '_'"""
