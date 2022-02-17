@@ -23,76 +23,46 @@
 - Trained XGBoost and Random Forest and selected the best of the both i.e. Random Forest.
 - Evaluation Matrix selected is roc_auc score. But have mentioned classification report with each model in the notebook for reference.
 - ``Feature Importance`` is also explained with each model with visualization for refrence 
-- requirements.txt - Python package dependencies file. Should be used to install packages required for this project. 
-
-
-
-## train_xgb.py 
-- This was the first model which was not selected as Random Forest gave the better results.
-
-![image](https://user-images.githubusercontent.com/80937106/139857571-42f1cfa4-4dbf-417e-8479-777b2f2810e5.png)
- 
-## Prediction on Jupyter Notebook
-![image](https://user-images.githubusercontent.com/80937106/139857683-b7580843-f8b9-46a1-838d-78a01c1ec3ec.png)
-
-## Using ``Waitress`` for deployment
-![image](https://user-images.githubusercontent.com/80937106/139857735-28264a63-9e6e-484d-921a-75da46dd378a.png)
-
-
-## Checked the results by running the predict.py file in anaconda prompt 
-![image](https://user-images.githubusercontent.com/80937106/139857778-567065e4-9a74-4b74-b07d-3450f1ec5829.png)
+- PIPENV - Python package which helps in creating a virtual environment and manage dependencies.  
 
 # How to use.
-## Clone the Repository
-![image](https://user-images.githubusercontent.com/80937106/139857803-1d4f2de3-033b-444e-a4da-9c58d2c277aa.png)
-### This repository doesnt have model_rf.bin in this as the model trained was 180 mb. to use predict.py to check things we need to run train_rf.py so that we create the model_rf.bin.
-
-## Loaded the Model using train_rf.py file
-![image](https://user-images.githubusercontent.com/80937106/139857842-87283b62-2abb-44e3-a74c-e6777ba712fb.png)
-
-## Use ``predict.py`` to run the app and then can check the prediction on the given dictionary of variables and values using ``python predict_test.py``
+- Clone the Repository
+- Create a virtual environment (recommended but not compulsory) 
+- Make sure you are in the Repository folder. 
+- Run ``pipenv install`` to install all packages as per the dependencies required for this project. 
+- Use ``pipenv run predict.py`` to run the app locally and then can check the prediction on the given dictionary of variables and values using ``pipenv run predict_test.py``
 
 
 # Docker:
-If you choose to build a docker file locally instead, here are the steps to do so:
 
-- Create a Dockerfile as such:
+## To use the already created image and run on local machine:
 
-``FROM python:3.8.12-slim``
+#### **Download the image running following command on anaconda promt or terminal (MAC or Linux)**
+- ``docker pull snikhil17/cricket_win_prediction``
+#### **Use following command on anaconda promt or terminal (MAC or Linux) to run the image locally i.e. to run the application (we are using Flask and waitress to serve the app).**
+- ``docker run -it --rm -p 9696:9696 snikhil17/cricket_win_prediction``
+#### **Open another anaconda promt or terminal (MAC or Linux) and navigate to the same location as above and then use following command to get the results as per the variables specified in ``predict_test.py``**
+- ``python predict_test.py``
 
-``LABEL maintainer="Nikhil Shrestha"``
-
-``ENV PYTHONUNBUFFERED=TRUE``
-
-``RUN pip --no-cache-dir install pipenv``
-
-``WORKDIR /app``
-
-``COPY ["Pipfile", "Pipfile.lock", "./"]``
-
-``RUN set -ex && pipenv install --deploy --system``
-
-``COPY ["predict.py", "model_rf.bin", "./"]``
-
-``EXPOSE 9696``
-
-``ENTRYPOINT ["gunicorn", "--bind=0.0.0.0:9696", "predict:app"]``
-
+### If you choose to build a docker file locally instead, here are the steps to do so:
 - This allows us to install python, run pipenv and its dependencies, run our predict script and our model itself and deploys our model using Flask/gunicorn.
 
-Similarly, you can just use the dockerfile in this repository.
+- Create a Dockerfile as such:
+  - ``FROM python:3.8.12-slim``
+  - ``RUN pip --no-cache-dir install pipenv``
+  - ``WORKDIR /app``
+  - ``COPY . /app``
+  - ``RUN pipenv install --deploy --system``
+  - ``EXPOSE 9696``
+  - ``ENTRYPOINT ["waitress-serve", "--listen=0.0.0.0:9696", "predict:app"]``
 
-- Build the Docker Container with :
-
-``docker build -t midtermproject_nick .``
-
-- Run the Docker container with:
-
-``Docker run -it -p 9696:9696 midtermproject_nick``
-
-- Now we can use our model through
-
-``python predict_test.py``
+### Similarly, you can just use the dockerfile in this repository.
+- Build the Docker Container with (can use custom name):
+  - ``docker build -t cricket_win_prediction .``
+- Run the Docker container with (use the same name as which you mentioned above):
+  - ``Docker run -it -p 9696:9696 cricket_win_prediction``
+- Now open another terminal (navigate to same folder as above) and now we can use our model through
+  - ``python predict_test.py``
 
 
 
